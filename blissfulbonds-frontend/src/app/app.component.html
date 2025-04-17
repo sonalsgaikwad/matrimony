@@ -1,14 +1,15 @@
 <div class="matrimony-header">
-    <mat-toolbar color="accent" class="main-menu">
-      <button mat-button [routerLink]="['/dashboard']">Dashboard</button>
-      <button mat-button [routerLink]="['/dashboard']">About us </button>
-      <button mat-button [routerLink]="['/dashboard']">Contactus</button>
+    <mat-toolbar color="primary">
       <ng-container *ngIf="!isLoggedIn; else showLogout">
         <button mat-button [routerLink]="['/login']">Login</button>
       </ng-container>
       <ng-template #showLogout>
+        <button mat-button [routerLink]="['/dashboard']">Dashboard</button>
+        <button mat-button [routerLink]="['/dashboard']">About us </button>
+        <button mat-button [routerLink]="['/dashboard']">Contactus</button>
         <button mat-raised-button color="warn" (click)="logoutUser()">Logout</button>
       </ng-template>
+
     </mat-toolbar>
   </div>
 
