@@ -9,30 +9,29 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { AuthService } from '../auth-service.service';
 
 @Component({
-  selector: 'app-login',
+  selector: 'app-profile',
   imports: [FormsModule,
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
     MatCardModule,MatToolbarModule],
-  templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  templateUrl: './profile.component.html',
+  styleUrl: './profile.component.css'
 })
-export class LoginComponent{
+export class ProfileComponent {
 
   constructor( private authService: AuthService, private userservice:UserserviceService,private router:Router){} 
-
   username = new FormControl('', [Validators.required]);
   password = new FormControl('', [Validators.required, Validators.minLength(8), Validators.maxLength(25)]);
 
     
-  loginForm = new FormGroup({
+  profileForm = new FormGroup({
     username: this.username,
     password: this.password
   });
 
   onSubmit() {
-    const userCredential = this.loginForm.value;
+    const userCredential = this.profileForm.value;
 
    this.userservice.authenticate(userCredential).subscribe({
     next:(userData)=>{
@@ -46,5 +45,4 @@ export class LoginComponent{
     }
    });
 }
-
 }
