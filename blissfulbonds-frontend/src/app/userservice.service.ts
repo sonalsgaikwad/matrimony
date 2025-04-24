@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class UserserviceService {
-  private usersUrl = 'http://localhost:8080/api';
+  private usersUrl = '/api';
 
   constructor(private httpClient: HttpClient,private router: Router) {
      // Base API endpoint 
@@ -19,11 +19,11 @@ export class UserserviceService {
   }
 
   public authenticate(user: Partial<User>) {
-    return this.httpClient.post<User>(`${this.usersUrl}/login`, user);
+    return this.httpClient.post<User>(`${this.usersUrl}/auth/login`, user);
   }
 
   public authLogout() {
-    return this.httpClient.post<User>(`${this.usersUrl}/logout`, {});
+    return this.httpClient.post<User>(`${this.usersUrl}/auth/logout`, {});
   }
 
   public saveUser(user: Partial<User>) {

@@ -23,7 +23,7 @@ export class LoginComponent{
   constructor( private authService: AuthService, private userservice:UserserviceService,private router:Router){} 
 
   username = new FormControl('', [Validators.required]);
-  password = new FormControl('', [Validators.required, Validators.minLength(8), Validators.maxLength(25)]);
+  password = new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(25)]);
 
     
   loginForm = new FormGroup({

@@ -4,12 +4,11 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
 import { Router, RouterModule, RouterOutlet } from '@angular/router';
 import { UserserviceService } from '../userservice.service';
-import { NgIf } from '@angular/common';
 
 
 @Component({
   selector: 'app-dashboard',
-  imports: [MatMenuModule,MatButtonModule,MatToolbarModule,RouterModule,NgIf],
+  imports: [MatMenuModule,MatButtonModule,MatToolbarModule,RouterModule],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })
