@@ -10,11 +10,14 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.core.userdetails.UserDetails;
 import io.jsonwebtoken.security.SignatureException;
+import org.springframework.stereotype.Component;
+
 import java.security.Key;
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 import java.util.Date;
 
+@Component
 public class JwtHelper {
     private static String JWT_SECRET;
     private static long JWT_EXPIRATION_MINUTES;

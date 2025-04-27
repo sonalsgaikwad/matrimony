@@ -32,8 +32,8 @@ public class UserController {
     }
 
     @PostMapping(path="/login")
-    public boolean login(@RequestBody User user){
-        return user.getUsername().equals("test89");
+    public User login(@RequestBody User user){
+        return this.userService.saveUser(user);
     }
 
     @PostMapping("/logout")

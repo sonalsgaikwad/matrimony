@@ -2,6 +2,9 @@ package com.matrimony.blissfulbonds.entity;
 
 import jakarta.persistence.*;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Entity
 @Table(name="user")
 public class User {
@@ -12,15 +15,19 @@ public class User {
     private String password;
 
     private String email;
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "userRole",
+            joinColumns = @JoinColumn(name = "userId"),
+            inverseJoinColumns = @JoinColumn(name = "roleId"))
+    private Set<Role> roles = new HashSet<>();
 
     public User() {
     }
 
-    public User(Long id, String username, String password, String email) {
+    public User(Long id, String username, String password) {
         this.id = id;
         this.username = username;
         this.password = password;
-        this.email = email;
     }
 
     public Long getId() {
@@ -53,5 +60,13 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
     }
 }
