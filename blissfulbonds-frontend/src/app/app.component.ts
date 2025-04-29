@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router, RouterModule, RouterOutlet } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MatMenuModule } from '@angular/material/menu';
-import { NgIf } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { UserserviceService } from './userservice.service';
@@ -11,7 +10,7 @@ import { AuthService } from './auth-service.service';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet,MatMenuModule,MatButtonModule,MatToolbarModule,RouterModule,NgIf],
+  imports: [RouterOutlet,MatMenuModule,MatButtonModule,MatToolbarModule,RouterModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

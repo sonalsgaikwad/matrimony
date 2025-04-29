@@ -1,0 +1,45 @@
+<div class="container">
+     
+    <mat-card>
+        <mat-card-title>
+            <mat-toolbar class="login-title">
+                <span> Login</span>
+              </mat-toolbar>
+        </mat-card-title>
+        <mat-card-content class="login-form">
+            <form [formGroup]="loginForm">
+                <div>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Email</mat-label>
+                        <input matInput placeholder="email" formControlName="email">
+                        @if (loginForm.get('email')?.invalid && loginForm.get('email')?.touched){
+                        <mat-error>Please enter a valid <strong>email</strong></mat-error>
+                        }
+                    </mat-form-field>
+                </div>
+                <div>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Password</mat-label>
+                        <input matInput type="{{hidePassword ?'password':'text'}}" placeholder="password"
+                            formControlName="password">
+
+                        <button mat-icon-button matSuffix (click)="togglePasswordVisibilty()">
+                            <mat-icon>
+                                {{hidePassword ? 'visibility_off':'visibility'}}
+                            </mat-icon>
+                        </button>
+                        @if (loginForm.get('password')?.invalid && loginForm.get('password')?.touched){
+                        <mat-error>Please enter a valid<strong>password</strong></mat-error>
+                        }
+                    </mat-form-field>
+                </div>
+                <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid"
+                    (click)="onSubmit()"> Login</button>
+
+            </form>
+            <mat-card-actions>
+                <button mat-button routerLink="/signup"> Dont have an account? Sign Up</button>
+            </mat-card-actions>
+        </mat-card-content>
+    </mat-card>
+</div>
